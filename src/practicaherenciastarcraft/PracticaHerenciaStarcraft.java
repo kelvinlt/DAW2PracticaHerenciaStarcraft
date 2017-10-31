@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class PracticaHerenciaStarcraft {
+
     //Al comenzar la practica llame a escuadron unidades sin querer. Me he dado cuenta tarde para rectificar todos los nombres
     static ArrayList<Unidad> unidades = new ArrayList<>();
 
@@ -38,7 +39,7 @@ public class PracticaHerenciaStarcraft {
         }
 
     }
-    
+
     //Metodo para hace split
     public static String[] splitStringX(String algo) {
         String conversor = algo;
@@ -54,45 +55,48 @@ public class PracticaHerenciaStarcraft {
         int var1 = 0;
         int var2 = 0;
         int victorias = 0;
-        
-        //nuevo[1] es el tipo que es la unidad un ejemplo seria terran
-        switch (nuevo[1].toLowerCase()) {
-            case "terran":
-                nombre = nuevo[2];
-                atk = Double.parseDouble(nuevo[3]);
-                def = Double.parseDouble(nuevo[4]);
-                var1 = Integer.parseInt(nuevo[5]);
-                var2 = Integer.parseInt(nuevo[6]);
+        try {
+            //nuevo[1] es el tipo que es la unidad un ejemplo seria terran
+            switch (nuevo[1].toLowerCase()) {
+                case "terran":
+                    nombre = nuevo[2];
+                    atk = Double.parseDouble(nuevo[3]);
+                    def = Double.parseDouble(nuevo[4]);
+                    var1 = Integer.parseInt(nuevo[5]);
+                    var2 = Integer.parseInt(nuevo[6]);
+                    //throw new ExceptionSc2(1);
 
-                Terran terran = new Terran(nombre, victorias, atk, def, var1, var2);
-                unidades.add(terran);
-                System.out.println("<OK: Escuadrón registrado>");
-                break;
-            case "protos":
-                nombre = nuevo[2];
-                atk = Double.parseDouble(nuevo[3]);
-                def = Double.parseDouble(nuevo[4]);
-                var1 = Integer.parseInt(nuevo[5]);
+                    Terran terran = new Terran(nombre, victorias, atk, def, var1, var2);
+                    unidades.add(terran);
+                    System.out.println("<OK: Escuadrón registrado>");
+                    break;
+                case "protos":
+                    nombre = nuevo[2];
+                    atk = Double.parseDouble(nuevo[3]);
+                    def = Double.parseDouble(nuevo[4]);
+                    var1 = Integer.parseInt(nuevo[5]);
 
-                Protos protos = new Protos(nombre, victorias, atk, def, var1);
-                unidades.add(protos);
-                System.out.println("<OK: Escuadrón registrado>");
-                break;
-            case "zerg":
-                nombre = nuevo[2];
-                atk = Double.parseDouble(nuevo[3]);
-                def = Double.parseDouble(nuevo[4]);
-                var1 = Integer.parseInt(nuevo[5]);
-                var2 = Integer.parseInt(nuevo[6]);
+                    Protos protos = new Protos(nombre, victorias, atk, def, var1);
+                    unidades.add(protos);
+                    System.out.println("<OK: Escuadrón registrado>");
+                    break;
+                case "zerg":
+                    nombre = nuevo[2];
+                    atk = Double.parseDouble(nuevo[3]);
+                    def = Double.parseDouble(nuevo[4]);
+                    var1 = Integer.parseInt(nuevo[5]);
+                    var2 = Integer.parseInt(nuevo[6]);
 
-                Zerg zerg = new Zerg(nombre, victorias, atk, def, var1, var2);
-                unidades.add(zerg);
-                System.out.println("<OK: Escuadrón registrado>");
-                break;
-            default:
-                System.out.println("< ERROR 002: Especie incorrecta >");
-                break;
+                    Zerg zerg = new Zerg(nombre, victorias, atk, def, var1, var2);
+                    unidades.add(zerg);
+                    System.out.println("<OK: Escuadrón registrado>");
+                    break;
+                default:
+                    throw new ExceptionSc2(2);
+            }
+        } catch (Exception e) {
         }
+
     }
 
     //Metodo para mejorar un escuadron/unidad
@@ -135,13 +139,14 @@ public class PracticaHerenciaStarcraft {
         }
 
     }
-    
-    public static void registrarBatalla(String equipos[]){
+
+    //Metodo para registrar combate con sus asaltos
+    public static void registrarBatalla(String equipos[]) {
         try {
-            
+
         } catch (Exception e) {
         }
-        
+
     }
 
     public static void mostrarUnidades() {
@@ -151,12 +156,12 @@ public class PracticaHerenciaStarcraft {
         int firstVic = 0;
         int secondVic = 0;
         int thirdVic = 0;
-        
+
         try {
             for (int i = 0; i < 3; i++) {
                 for (Unidad u : unidades) {
-                    if(!u.getNombre().equals(firstName)||!u.getNombre().equals(secondName)||!u.getNombre().equals(thirdName)){
-                        if(u.getVictorias()>firstVic){
+                    if (!u.getNombre().equals(firstName) || !u.getNombre().equals(secondName) || !u.getNombre().equals(thirdName)) {
+                        if (u.getVictorias() > firstVic) {
                             firstName = u.getNombre();
                             firstVic = u.getVictorias();
                         }
@@ -169,7 +174,7 @@ public class PracticaHerenciaStarcraft {
         }
 
     }
-    
+
     //Metodo de prueba para añadir victorias
     public static void addVictoriasTest(String unidad[]) {
         for (Unidad u : unidades) {
