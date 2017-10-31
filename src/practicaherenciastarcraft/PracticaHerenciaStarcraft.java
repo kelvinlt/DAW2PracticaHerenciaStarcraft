@@ -110,25 +110,24 @@ public class PracticaHerenciaStarcraft {
                                 ((Terran) u).setTecnologias(Integer.parseInt(unidad[3]));
                                 break;
                             case "edificios":
-                                
-                                break;  
+                                ((Terran) u).setEdificios(Integer.parseInt(unidad[3]));
+                                break;
                         }
                     }
                     if (u instanceof Zerg) {
                         switch (unidad[2].toLowerCase()) {
                             case "overlords":
-
+                                ((Zerg) u).setOverlords(Integer.parseInt(unidad[3]));
                                 break;
                             case "esbirros":
-
+                                ((Zerg) u).setEsbirros(Integer.parseInt(unidad[3]));
                                 break;
-
                         }
                     }
                     if (u instanceof Protos) {
                         switch (unidad[2].toLowerCase()) {
                             case "pilones":
-
+                                ((Protos) u).setPilones(Integer.parseInt(unidad[3]));
                                 break;
                         }
                     }
