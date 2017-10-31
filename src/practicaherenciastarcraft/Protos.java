@@ -39,7 +39,7 @@ public class Protos extends Unidad{
 
     @Override
     public String toString() {
-        return "Protos{" +getNombre()+ "|pilones=" + pilones + '}';
+        return "Protos{Nombre:"+getNombre()+ "|Ataque: "+getAtaque()+"|Defensa: "+getDefensa()+"|Victorias: "+getVictorias()+"|Pilones: " + pilones + '}';
     }
 
     

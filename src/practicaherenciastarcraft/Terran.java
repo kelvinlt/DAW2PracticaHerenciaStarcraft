@@ -47,7 +47,7 @@ public class Terran extends Unidad{
 
     @Override
     public String toString() {
-        return "Terran{" +getNombre()+ " |edificios=" + edificios + ", tecnologias=" + tecnologias + '}';
+        return "Terran{Nombre:"+getNombre()+ "|Ataque: "+getAtaque()+"|Defensa: "+getDefensa()+"|Victorias: "+getVictorias()+"|Edificios: " + edificios + " |Tecnologias: " + tecnologias + '}';
     }
     
     

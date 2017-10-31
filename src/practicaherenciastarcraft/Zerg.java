@@ -47,7 +47,7 @@ public class Zerg extends Unidad{
 
     @Override
     public String toString() {
-        return "Zerg{" +getNombre()+ "|esbirros=" + esbirros + ", overlords=" + overlords + '}';
+        return "Zerg{Nombre:"+getNombre()+ "|Ataque: "+getAtaque()+"|Defensa: "+getDefensa()+"|Victorias: "+getVictorias()+"|Esbirros: " + esbirros + " |Overlords: " + overlords + '}';
     }
     
     
