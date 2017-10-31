@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package practicaherenciastarcraft;
 
+import Exception.ExceptionSc2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class PracticaHerenciaStarcraft {
-
+    //Al comenzar la practica llame a escuadron unidades sin querer. Me he dado cuenta tarde para rectificar todos los nombres
     static ArrayList<Unidad> unidades = new ArrayList<>();
-    static ArrayList<Terran> terrans = new ArrayList<>();
-    static ArrayList<Zerg> zergs = new ArrayList<>();
-    static ArrayList<Protos> protoses = new ArrayList<>();
 
     public static void main(String[] args) {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -45,13 +38,15 @@ public class PracticaHerenciaStarcraft {
         }
 
     }
-
+    
+    //Metodo para hace split
     public static String[] splitStringX(String algo) {
         String conversor = algo;
         String[] splitString = conversor.split(" ");
         return splitString;
     }
 
+    //Metodo para introducir una nueva unidad/escuadron
     public static void altaEscuadron(String[] nuevo) {
         String nombre = "";
         double atk = 0;
@@ -59,7 +54,8 @@ public class PracticaHerenciaStarcraft {
         int var1 = 0;
         int var2 = 0;
         int victorias = 0;
-
+        
+        //nuevo[1] es el tipo que es la unidad un ejemplo seria terran
         switch (nuevo[1].toLowerCase()) {
             case "terran":
                 nombre = nuevo[2];
@@ -99,10 +95,10 @@ public class PracticaHerenciaStarcraft {
         }
     }
 
+    //Metodo para mejorar un escuadron/unidad
     public static void mejorarEscuadron(String unidad[]) {
         try {
             for (Unidad u : unidades) {
-                System.out.println(u);
                 if (unidad[1].equals(u.getNombre())) {
                     if (u instanceof Terran) {
                         switch (unidad[2].toLowerCase()) {
@@ -139,10 +135,54 @@ public class PracticaHerenciaStarcraft {
         }
 
     }
+    
+    public static void registrarBatalla(String equipos[]){
+        try {
+            
+        } catch (Exception e) {
+        }
+        
+    }
 
     public static void mostrarUnidades() {
+        String firstName = null;
+        String secondName = null;
+        String thirdName = null;
+        int firstVic = 0;
+        int secondVic = 0;
+        int thirdVic = 0;
+        
+        try {
+            for (int i = 0; i < 3; i++) {
+                for (Unidad u : unidades) {
+                    if(!u.getNombre().equals(firstName)||!u.getNombre().equals(secondName)||!u.getNombre().equals(thirdName)){
+                        if(u.getVictorias()>firstVic){
+                            firstName = u.getNombre();
+                            firstVic = u.getVictorias();
+                        }
+
+                    } else {
+                    }
+                }
+            }
+        } catch (Exception e) {
+        }
+
+    }
+    
+    //Metodo de prueba para añadir victorias
+    public static void addVictoriasTest(String unidad[]) {
         for (Unidad u : unidades) {
-            System.out.println(u);
+            try {
+                if (unidad[1].equals(u.getNombre())) {
+                    u.setVictorias(10);
+                    System.out.println(u);
+                } else {
+                    System.out.println("Nada de add victorias");
+                }
+            } catch (Exception e) {
+            }
+
         }
     }
 
