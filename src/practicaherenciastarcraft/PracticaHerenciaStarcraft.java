@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PracticaHerenciaStarcraft {
 
@@ -189,6 +190,14 @@ public class PracticaHerenciaStarcraft {
             }
 
         }
+    }
+    
+    public static int randomNum(){
+        int min=0;
+        int max=9;
+        int temp= ThreadLocalRandom.current().nextInt(min, max + 1);
+        
+        return temp;
     }
 
 }
