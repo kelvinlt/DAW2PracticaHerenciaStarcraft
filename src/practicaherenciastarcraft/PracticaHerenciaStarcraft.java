@@ -191,13 +191,63 @@ public class PracticaHerenciaStarcraft {
 
         }
     }
-    
-    public static int randomNum(){
-        int min=0;
-        int max=9;
-        int temp= ThreadLocalRandom.current().nextInt(min, max + 1);
-        
+
+    public static int randomNum() {
+        int min = 0;
+        int max = 9;
+        int temp = ThreadLocalRandom.current().nextInt(min, max + 1);
+
         return temp;
+    }
+
+    public static void combate(String wan, String two) {
+        int asaltosMax = 5;
+        int asaltoActual = 0;
+        int victoriasWan = 0;
+        int victoriasTwo = 0;
+        
+        for(Unidad u :unidades){
+            if(wan.equals(u.getNombre())){
+                if(u instanceof Terran){
+                
+                }
+                if(u instanceof Protos){
+                
+                }
+                if(u instanceof Zerg){
+                
+                }
+            }
+        }
+        
+        while (!(asaltoActual > asaltosMax)) {
+            asaltoActual++;
+
+            int wanRandom = randomNum();
+            int twoRandom = randomNum();
+
+            int valorAtkWan = 0;
+            int valorAtkTwo = 0;
+
+        }
+
+    }
+
+    public static Unidad instanceOfSomething(Unidad n) {
+        if (n instanceof Terran) {
+            Terran t = new Terran(n.getNombre(), n.getVictorias(), n.getAtaque(), n.getDefensa(), ((Terran) n).getEdificios(), ((Terran) n).getTecnologias());
+            return t;
+        }
+        if (n instanceof Protos) {
+            Protos p = new Protos(n.getNombre(), n.getVictorias(), n.getAtaque(), n.getDefensa(), ((Protos) n).getPilones());
+            return p;
+        }
+        if (n instanceof Zerg) {
+            Zerg z = new Zerg(n.getNombre(), n.getVictorias(), n.getAtaque(), n.getDefensa(), ((Zerg) n).getEsbirros(), ((Zerg) n).getOverlords());
+            return z;
+        } else {
+            return null;
+        }
     }
 
 }
